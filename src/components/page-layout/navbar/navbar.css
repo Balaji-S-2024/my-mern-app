@@ -1,0 +1,180 @@
+:root {
+  --primary-color: #f0fdf4;
+  --accent-color: #10b981;
+  --hover-underline: #10b981;
+  --text-color: #1f2937;
+  --button-color: #16a34a;
+}
+
+/* === NAVBAR CONTAINER === */
+.navbar {
+  background: var(--primary-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+}
+
+/* === LOGO === */
+.logo a {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* === MENU TOGGLE (3 dots for mobile) === */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  margin-left: auto;
+}
+
+/* === NAV ITEMS WRAPPER === */
+.nav-items {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+/* === INDIVIDUAL ITEM === */
+.nav-item {
+  position: relative;
+}
+
+.nav-item a,
+.nav-item span {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* === HOVER UNDERLINE === */
+.nav-item a::after,
+.nav-item span::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--hover-underline);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item a:hover::after,
+.nav-item span:hover::after {
+  width: 100%;
+}
+
+/* === DROPDOWN === */
+.dropdown {
+  position: absolute;
+  top: 2.5rem;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.dropdown li {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 0.25rem;
+}
+
+/* === CONTACT BUTTON (always right side) === */
+.contact-button {
+  background: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.contact-button:hover {
+  background: #059669;
+}
+
+/* === RESPONSIVE (TABLET & MOBILE) === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    display: none;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .nav-items.show {
+    display: flex;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown li a:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+  }
+
+  .contact-button {
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
